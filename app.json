@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "everyone_food_app",
+    "slug": "everyone_food_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
