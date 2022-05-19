@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import { Dimensions } from 'react-native';
 import {  RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
@@ -11,12 +12,13 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  padding: ${RFPercentage(10)}px ${RFPercentage(6)}px;
+  padding: ${RFValue(height*0.07)}px ${RFPercentage(6)}px ${RFPercentage(5)}px ${RFPercentage(6)}px;
   justify-content: space-between;
 `;
 
+
 export const Header = styled.View`
-  height: ${RFPercentage(30)}px;
+  height: ${height * 0.26}px; 
   justify-content: space-between;
 `;
 
@@ -41,7 +43,7 @@ export const LogoImage = styled.Image`
 export const SloganText = styled.Text`
   color: ${({ theme }) => theme.colors.light};
   font-family: ${({ theme }) => theme.fonts.sf_800};
-  font-size: ${RFValue(55)}px; 
+  font-size: ${RFValue(height * 0.07)}px; 
 `;
 
 
@@ -55,7 +57,6 @@ export const StartButton = styled.TouchableOpacity.attrs({
 
   justify-content: center;
   align-items: center;
-
 `;
 
 export const ButtonText = styled.Text`
@@ -67,29 +68,28 @@ export const ButtonText = styled.Text`
 export const ToysBox = styled.View`
   position: absolute;
   width: ${width}px;
-  height: ${height/2}px;
-  bottom: ${RFPercentage(10)}px;
-  left: 0;
+  height: ${RFValue(height/2.3)}px;
+  bottom: ${RFPercentage(height/80)}px;
+  overflow: visible;
+
 `;
 
-export const ImageGirltoy = styled.Image.attrs({
-  resizeMode: 'contain'
+export const Imagetoy = styled.Image.attrs({
+  resizeMode: 'cover'
 })`
-  position: absolute;
-  width: 70%;
-  height: ${height/2}px;
+  width: ${width}px;
+  height: ${RFValue(height/2.3)}px;
+  overflow: visible;
 `;
 
-export const ImageMantoy = styled.Image.attrs({
-  resizeMode: 'contain'
-})`
-  position: absolute;
-  width: 60%;
-  height: ${height/2}px;
-`;
 
-export const GradientFooter = styled.View`
+export const GradientFooter = styled(LinearGradient).attrs(({ theme }) => ({
+  colors: [ '#ffffff00', `${theme.colors.orange__750}` ],
+
+}))`
   position: absolute;
   width: 100%;
-  height: ${height/4}px;
+  height: 50%;
+  bottom: 0;
+  z-index: 3;
 `;

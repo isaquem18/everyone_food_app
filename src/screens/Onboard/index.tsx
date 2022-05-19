@@ -1,4 +1,4 @@
-import { Image } from 'react-native';
+import { Image, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import LogoImage from '../../assets/images/logo.svg';
 import {
@@ -10,8 +10,7 @@ import {
   StartButton,
   ButtonText,
   ToysBox,
-  ImageGirltoy,
-  ImageMantoy,
+  Imagetoy,
   GradientFooter
 } from './styles';
 
@@ -19,30 +18,31 @@ export function Onboard () {
   const { navigate } = useNavigation<any>();
 
   const handleGetStarted = () => {
-    navigate('Login');
+    navigate('LoginAndRegister');
   };
 
   return (
-    <Container>
-      
-      <Content>
-        <Header>
-          <LogoBox><LogoImage /></LogoBox>
-          <SloganText>Food for{'\n'}Everyone</SloganText>
-        </Header>
-        <StartButton onPress={handleGetStarted}>
-          <ButtonText>Get started</ButtonText>
-        </StartButton>
-      </Content>
-      <ToysBox>
-        <ImageGirltoy source={require('../../assets/images/girl.png')} 
-          style={{ left: 0, zIndex: 2 }}
-        />
-        <ImageMantoy source={require('../../assets/images/man.png')} 
-          style={{ right: 0, zIndex: 1 }}
-        />
-        <GradientFooter />
-      </ToysBox>
-    </Container>
+    <>
+      <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
+      <Container>
+
+        <ToysBox>
+          <Imagetoy source={require('../../assets/images/toys.png')} 
+            style={{ left: 0, zIndex: 2 }}
+          />
+        </ToysBox>
+        
+        <Content>
+          <Header>
+            <LogoBox><LogoImage /></LogoBox>
+            <SloganText>Food for{'\n'}Everyone</SloganText>
+          </Header>
+          <StartButton onPress={handleGetStarted}>
+            <ButtonText>Get started</ButtonText>
+          </StartButton>
+        </Content>
+
+      </Container>
+    </>
   )
 }

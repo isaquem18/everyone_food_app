@@ -1,7 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Onboard } from '../../screens/Onboard';
-import { Login } from '../../screens/Login';
+import { LoginAndRegister } from '../../screens/LoginAndRegister';
 import { BottomTabsRoutes } from '../BottomTabsRoutes';
 
 export function StackRoutes () {
@@ -14,7 +14,7 @@ export function StackRoutes () {
   return (
     <Navigator>
       <Screen name="Onboard" component={Onboard} options={{ headerShown: false }} />
-      <Screen name="Login" component={Login}  options={{ headerShown: false }} />
+      <Screen name="LoginAndRegister" component={LoginAndRegister}  options={{ headerShown: false }} />
       <Screen name="BottomTabsRoutes" component={BottomTabsRoutes} />
     </Navigator>
   )
